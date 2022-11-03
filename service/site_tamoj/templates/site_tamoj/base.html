@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru-RU">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{title}}</title>
+        <link type="text/css" href="{% static 'site_tamoj/css/style.css' %}" rel = 'stylesheet'>
+    </head>
+    <body>
+
+
+        <div class = 'header'>
+            {% block mainmenu %}
+            <div class="header__section">
+            {% for m in menu %}
+                <div class="header__item headerButton"><a href = '{% url m.url_name %}'>{{m.title}}</a><div/>
+            {% endfor %}
+            {% if user.is_authenticated %}
+                <div class="header__item headerButton">
+                    <a href="{% url 'logout' %}">log out</a>
+                </div>
+            {% else %}
+                <div class="header__item headerButton">
+                    <a href="{% url 'register_user' %}">register</a>
+                </div>
+                <div class="header__item headerButton">
+                    <a href="{% url 'login' %}">login</a>
+                </div>
+            {% endif %}
+
+            {% endblock mainmenu %}
+            </div>
+        </div>
+        <div class = "container">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif%}
+        </div>
+        <div class="content-text">
+        {% block content %}
+        {% endblock %}
+        <div/>
+    </body>
+</html>

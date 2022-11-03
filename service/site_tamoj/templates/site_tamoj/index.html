@@ -1,0 +1,72 @@
+{% extends 'site_tamoj/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+<p>Содержимое главной страницы</p>
+<ul>
+    {% for p in posts %}
+    <li>
+        <h2 class="pup">{{p.name}}</h2>
+        <p>{{p.location}}</p>
+        <hr>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru-RU">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>{{ title }}</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash; header nav section &ndash;&gt;-->
+<!--    <div id="header" class="clearfix">-->
+<!--        <div class="container">-->
+<!--            &lt;!&ndash; LOGO &ndash;&gt;-->
+<!--            <div id="logo">-->
+<!--                <a href="#"><img src="images/logo2.png" alt=""/></a>-->
+<!--            </div>-->
+
+<!--            <div class="nav_wrapper">-->
+<!--                &lt;!&ndash; NAVIGATION MENU &ndash;&gt;-->
+<!--                <nav>-->
+<!--                    <a href="#" class="btn menu-mobile"><i class="fa fa-align-justify"></i></a>-->
+<!--                    <ul>-->
+<!--                        {% for m in menu %}-->
+<!--                            <li><a href = '{{m}}'>{{m}}</a></li>-->
+<!--                        {% endfor %}-->
+<!--&lt;!&ndash;                        <li><a href="home">HOME</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li><a href="features">FEATURES</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li><a href="download">DOWNLOAD</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li><a href="gallery">GALLERY</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li><a href="faq">FAQ</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <li><a href="contact">CONTACT</a></li>&ndash;&gt;-->
+<!--                    </ul>-->
+<!--                </nav>-->
+<!--            </div>&lt;!&ndash; nav_wraper end &ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>&lt;!&ndash; header end &ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
