@@ -6,16 +6,23 @@
             there was an error with yours form...
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-
 {% endif %}
-    <h1>Register</h1>
-    <br><br/>
-    <form action="{% url 'register_user'%}" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-
-        <br><br/>
-        <input type="submit" value="Submit" class="btn btn-secondary">
-    </form>
-
+    <div class="header-bar">
+        <h1>Регистрация</h1>
+    </div>
+    <div class="card-body">
+        <form action="{% url 'register_user'%}" method="POST">
+            {% csrf_token %}
+            <label>Имя пользователя</label>
+            {{form.username}}
+            <br> <br> <br>
+            <label>Пароль</label>
+            {{form.password1}}
+            <br> <br> <br>
+            <label>Повторите пароль</label>
+            {{form.password2}}
+            <br><br/>
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
+    </div>
 {% endblock %}

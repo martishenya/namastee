@@ -7,39 +7,63 @@ body {
 	-webkit-backface-visibility:visible;
 }
 
-
-.pup {
-    color:#FF0000;}
-
-
-
-
-a{
-    color:#fff;
-    text-decorator:none;
-}
-
-.header{
+.header-bar {
     display: flex;
     justify-content: space-between;
+    color: #fff;
     padding: 10px;
-	background: #689CD2;
-	color: #fff;
-	font-family: 'Roboto',sans-serif;
-	}
+    border-radius: 5px 5px 0 0;
+    background: linear-gradient(90deg, #212529 20%,  #55585E 100%);
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top:10%
 
-.header__section{
-    display: flex;
-    align-items: center;
+        }
+.card-body {
+    padding: 20px;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-bottom:30%;
 }
 
-.header__item{
-    padding: 10px 15 px;
-    font-size: 20px;
-    margin-left: 5px;
+.form-label {
+    margin-top:5%
 }
-.headerButton{
-    position: sticky;
-    left: 100px;
-    top: 50px;
+
+.button-login{
+    border: 1px solid #757575;
+    background-color: #212529;
+    color: #fff;
+    padding: 10px 35% 10px 15%;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top:10%;
+
+
+
 }
+
+  --#{$prefix}navbar-padding-x: #{if($navbar-padding-x == null, 0, $navbar-padding-x)};
+  --#{$prefix}navbar-padding-y: #{$navbar-padding-y};
+  --#{$prefix}navbar-color: #{$navbar-light-color};
+  --#{$prefix}navbar-hover-color: #{$navbar-light-hover-color};
+  --#{$prefix}navbar-disabled-color: #{$navbar-light-disabled-color};
+  --#{$prefix}navbar-active-color: #{$navbar-light-active-color};
+  --#{$prefix}navbar-brand-padding-y: #{$navbar-brand-padding-y};
+  --#{$prefix}navbar-brand-margin-end: #{$navbar-brand-margin-end};
+  --#{$prefix}navbar-brand-font-size: #{$navbar-brand-font-size};
+  --#{$prefix}navbar-brand-color: #{$navbar-light-brand-color};
+  --#{$prefix}navbar-brand-hover-color: #{$navbar-light-brand-hover-color};
+  --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
+  --#{$prefix}navbar-toggler-padding-y: #{$navbar-toggler-padding-y};
+  --#{$prefix}navbar-toggler-padding-x: #{$navbar-toggler-padding-x};
+  --#{$prefix}navbar-toggler-font-size: #{$navbar-toggler-font-size};
+  --#{$prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-light-toggler-icon-bg)};
+  --#{$prefix}navbar-toggler-border-color: #{$navbar-light-toggler-border-color};
+  --#{$prefix}navbar-toggler-border-radius: #{$navbar-toggler-border-radius};
+  --#{$prefix}navbar-toggler-focus-width: #{$navbar-toggler-focus-width};
+  --#{$prefix}navbar-toggler-transition: #{$navbar-toggler-transition};
+
+
