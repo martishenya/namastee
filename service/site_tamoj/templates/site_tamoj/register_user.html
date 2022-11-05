@@ -1,5 +1,5 @@
 {% extends 'site_tamoj/base.html' %}
-
+{% load static %}
 {% block content %}
 {% if form.errors %}
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -13,16 +13,19 @@
     <div class="card-body">
         <form action="{% url 'register_user'%}" method="POST">
             {% csrf_token %}
-            <label>Имя пользователя</label>
-            {{form.username}}
-            <br> <br> <br>
-            <label>Пароль</label>
-            {{form.password1}}
-            <br> <br> <br>
-            <label>Повторите пароль</label>
-            {{form.password2}}
-            <br><br/>
-            <input type="submit" value="Submit" class="btn btn-secondary">
+            <div class="input-group">
+                {{form.username}}
+            </div>
+            <div class="input-group">
+                {{form.email}}
+            </div>
+            <div class="input-group">
+                {{form.password1}}
+            </div>
+            <div class="input-group">
+                {{form.password2}}
+            </div>
+            <input type="submit" value="Зарегистрироваться" class="btn btn-secondary">
         </form>
     </div>
 {% endblock %}

@@ -11,6 +11,7 @@ urlpatterns = [
     path('login/', login_user, name= 'login'),
     path('logout/', logout_user, name= 'logout'),
     path('register_user/', register_user, name= 'register_user'),
+    path('dataset/', dataset, name= 'dataset'),
     # path('categories/<int:catid>/', categories),
 
     # path('account/', include('django.contrib.auth.urls')),

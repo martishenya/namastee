@@ -1,21 +1,21 @@
 {% extends 'site_tamoj/base.html' %}
 {% load static %}
 {% block content %}
-    <div class="header-bar">
-        <h1>Вход в учетную запись</h1>
-    </div>
+
 
     <div class="card-body">
+        <div class="header-bar">
+            <h1>Вход в учетную запись</h1>
+        </div>
         <form action="" method="POST">
             {% csrf_token %}
 
 
-            <label for="exampleInputEmail1" class="form-label">Ваш E-mail</label>
-            <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+
+            <input type="text" class="form-input" name="username" placeholder="Электронная почта">
 
 
-            <label for="exampleInputPassword1" class="form-label">Пароль</label>
-            <input type="password" class="form-control" name ="password">
+            <input type="password"class="form-input" name ="password"  placeholder="Пароль">
 
 
         <input type="submit" value="пока оставлю эту супер уебанскую кнопку здесь" class="button-login">

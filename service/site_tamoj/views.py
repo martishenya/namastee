@@ -2,13 +2,15 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView
-
+import pandas as pd
 from site_tamoj.models import Profile
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from django.contrib.auth.forms import UserCreationForm
+
+from .forms import UserCreationForm, SignUpForm
 
 # menu = ['О сайте', 'Обратная связь', 'Войти']
 
@@ -75,11 +77,34 @@ def logout_user(request):
     return redirect('home')
 
 
+# def register_user(request):
+#
+#
+#     if request.method == "POST":
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             username = form.cleaned_data['username']
+#             password = form.cleaned_data['password1']
+#             user = authenticate(username = username, password = password)
+#             login(request, user)
+#             messages.success(request, ('REgistration is suck'))
+#             return redirect('home')
+#     else:
+#         form = UserCreationForm()
+#
+#     return render(request, 'site_tamoj/register_user.html', {
+#         'form': form,
+#         'menu': menu,
+#         'title': 'Регистрация'
+#     })
+
+
 def register_user(request):
 
 
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']
@@ -89,11 +114,20 @@ def register_user(request):
             messages.success(request, ('REgistration is suck'))
             return redirect('home')
     else:
-        form = UserCreationForm()
+        form = SignUpForm()
 
     return render(request, 'site_tamoj/register_user.html', {
         'form': form,
         'menu': menu,
         'title': 'Регистрация'
     })
+def dataset(request):
+
+    df=pd.read_csv("dataset_per_country (1).csv")
+    df = pd.DataFrame(data=df)
+
+    mydict = {
+        "df": df.to_html()
+    }
+    return render(request, 'site_tamoj/dataset.html', context=mydict)
 
