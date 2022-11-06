@@ -1,31 +1,38 @@
 {% extends 'site_tamoj/base.html' %}
 {% load static %}
 {% block content %}
-{% if form.errors %}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            there was an error with yours form...
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-{% endif %}
-    <div class="header-bar">
-        <h1>Регистрация</h1>
-    </div>
+<!--{% if form.errors %}-->
+<!--    <div class="alert alert-warning alert-dismissible fade show" role="alert">-->
+<!--            there was an error with yours form...-->
+<!--            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--{% endif %}-->
+<main>
+    <div class="refisher-form-container">
+        <h1 class ="form-title">Регистрация</h1>
+
     <div class="card-body">
         <form action="{% url 'register_user'%}" method="POST">
             {% csrf_token %}
-            <div class="input-group">
-                {{form.username}}
+            <div class ="glav-form">
+                <div class="form-field">
+                    {{form.username}}
+                </div>
+                <div class="form-field">
+                    {{form.email}}
+                </div>
+                <div class="form-field">
+                    {{form.password1}}
+                </div>
+                <div class="form-field">
+                    {{form.password2}}
+                </div>
             </div>
-            <div class="input-group">
-                {{form.email}}
-            </div>
-            <div class="input-group">
-                {{form.password1}}
-            </div>
-            <div class="input-group">
-                {{form.password2}}
-            </div>
-            <input type="submit" value="Зарегистрироваться" class="btn btn-secondary">
+            <div class="form-button">
+            <input type="submit" value="Зарегистрироваться" class="button">
+            <div/>
         </form>
     </div>
+    <div/>
+<main/>
 {% endblock %}

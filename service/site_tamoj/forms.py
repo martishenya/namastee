@@ -13,7 +13,7 @@ class SignUpForm(UserCreationForm):
             'type': 'text',
             'class': 'form-input',
             'placeholder': _('Иван Иванов'),
-            'maxlength': '16',
+            'maxlength': '30',
             'minlength': '6'
             })
         self.fields['email'].widget.attrs.update({
@@ -31,7 +31,7 @@ class SignUpForm(UserCreationForm):
             'type': 'password',
             'class': 'form-input',
             'placeholder': _('Пароль'),
-            'maxlength': '22',
+            'maxlength': '30',
             'minlength': '8'
         })
         self.fields['password2'].widget.attrs.update({

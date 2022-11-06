@@ -1,42 +1,29 @@
 *{
-font-family: 'Exo 2', sans-serif;
-font-family: 'Nunito', sans-serif;
-font-family: 'Russo One', sans-serif;
+    font-family: 'Exo 2', sans-serif;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Russo One', sans-serif;
+
+
 }
 
 
 body {
+    background:	#D9D9D9;
 	line-height:1.5em;
-	color:	#000096;
+
 	font-weight:300;
 	font-size: 14px;
 
-	-webkit-backface-visibility:visible;
 }
-
-
-
-
-
 
 .form-label {
-    margin-top:5%
-}
 
-.button-login{
-    border: 1px solid #757575;
-    background-color: #212529;
-    color: #fff;
-    padding: 10px 35% 10px 15%;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    margin-top:10%;
-
+    margin-top:5%;
 
 }
+
 .form-control{
+
     width: 396px;
     height: 67px;
     left: 121px;
@@ -44,8 +31,100 @@ body {
 
 }
 
+.card-body{
+
+
+}
+
+/* форма логин и регистрация*/
+
+.refisher-form-container{
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:5px;
+    width: 639px;
+    height: 759px;
+    left: 0px;
+    top: 0px;
+    background: #5C5B62;
+    border: 1px solid #FFFFFF;
+    border-radius: 90px;
+}
+
+.glav-form {
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.form-title {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 432px;
+    height: 72px;
+    left: 0px;
+    top: 70px;
+    font-style: normal;
+
+    font-size: 40px;
+    line-height: 51px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.form-field{
+    position: relative;
+    width: 396px;
+    height: 67px;
+    left: 0px;
+    top: 120px;
+    background:#D9D9D9;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:30px;
+}
+
+.form-input {
+    width: 396px;
+    height: 67px;
+    left: 0px;
+    top: 0px;
+    background: #D9D9D9;
+    border-radius: 20px;
+    border: 3px solid #AEAEB1;
+}
+
+.button{
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 4px;
+    margin-bottom:20%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 396px;
+    height: 55px;
+    left: 0px;
+    top: 150px;
+    margin-top:30px;
+    background: #9F9DA6;
+    border: 3px solid #AEAEB1;
+    border-radius: 20px;
+
+}
+/* --------------------*/
+
 .container {
-    margin: 20px 1% 0 1%;
+
+    margin: 20px 0 0 0;
+
 }
 
 .li-header_right {
@@ -57,12 +136,3 @@ body {
 }
 
 
-.form-input {
-    position: absolute;
-    width: 396px;
-    height: 67px;
-    left: 0px;
-    top: 0px;
-    background: #D9D9D9;
-    border-radius: 20px;
-}

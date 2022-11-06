@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 import pandas as pd
 from site_tamoj.models import Profile
-
+import psycopg2
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
@@ -24,20 +24,50 @@ menu = [{'title': 'Главная', 'url_name': 'home' },
 # def index(request):
 
 def index(request):
-    posts = Profile.objects.all()
+    posts = Profile.objects.filter(name = 'какое')
+    print(posts)
+    con = psycopg2.connect(
+        # dbname="my_table_name",
+        database="hackdb",
+        user="postgres",
+        password="12345",
+        host="127.0.0.1",
+        port="5432"
+    )
 
-    context = {'posts': posts,
+    print("Database opened successfully")
+    cur = con.cursor()
+    cur.execute("SELECT topic from my_table_name")
+    dct = []
+    rows = cur.fetchall()
+    for row in rows:
+        dct.append(row)
+
+
+    print("Operation done successfully")
+    con.close()
+
+    context = {'dct': dct,
                'menu': menu,
                'title': 'Главная страница'
                }
 
     return render(request, 'site_tamoj/index.html', context=context)
 
+
+posts = Profile.objects.all()
+print(list(posts))
+
+
 def about(request):
-    return render(request, 'site_tamoj/about.html', {'menu': menu, 'title': 'About'})
+
+    return render(request, 'site_tamoj/about.html', {'title': 'About'})
 
 def contact(request):
     return HttpResponse('авторизация на сайте')
+
+def properties(request):
+    return render(request, 'site_tamoj/properties.html', {'title': 'properties'})
 
 def categories(request, catid):
     if int(catid) > 5:
@@ -60,7 +90,7 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('properties')
         else:
             # Return an 'invalid login' error message.
             messages.success(request, ("Ошибка"))
@@ -74,7 +104,7 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request, ("Log out succes"))
-    return redirect('home')
+    return redirect('login')
 
 
 # def register_user(request):
@@ -102,7 +132,6 @@ def logout_user(request):
 
 def register_user(request):
 
-
     if request.method == "POST":
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -112,7 +141,9 @@ def register_user(request):
             user = authenticate(username = username, password = password)
             login(request, user)
             messages.success(request, ('REgistration is suck'))
-            return redirect('home')
+            return redirect('properties')
+        else:
+            messages.success(request, ("Что-то не так с формой"))
     else:
         form = SignUpForm()
 
@@ -131,3 +162,38 @@ def dataset(request):
     }
     return render(request, 'site_tamoj/dataset.html', context=mydict)
 
+
+#
+# df = pd.read_csv('full_dataset_top_15.csv')
+#
+#
+# df.columns = [c.lower() for c in df.columns] # PostgreSQL doesn't like capitals or spaces
+#
+# from sqlalchemy import create_engine
+#
+# engine = create_engine('postgresql://postgres:12345@localhost:5432/hackdb')
+#
+# df.to_sql("my_table_name", engine,if_exists='append')
+
+
+# import psycopg2
+#
+# con = psycopg2.connect(
+#     # dbname="my_table_name",
+#     database="hackdb",
+#     user="postgres",
+#     password="12345",
+#     host="127.0.0.1",
+#     port="5432"
+# )
+#
+# print("Database opened successfully")
+# cur = con.cursor()
+# cur.execute("SELECT topic from my_table_name")
+#
+# rows = cur.fetchall()
+# for row in rows:
+#     print("topic =", row[0], "\n")
+#
+# print("Operation done successfully")
+# con.close()

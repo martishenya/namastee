@@ -1,0 +1,27 @@
+{% extends 'site_tamoj/base.html' %}
+{% load static %}
+
+{% block content %}
+<form>
+  <div>
+    <input
+      type="radio"
+      class ="reg_selection"
+      name="market"
+      value="international" />
+    <label >Международный рынок</label>
+  </div>
+    <div>
+    <input
+      type="radio"
+      class ="reg_selection"
+      name="market"
+      value="russian" />
+    <label >Российский рынок</label>
+  </div>
+  <div>
+    <button type="submit">Выбрать</button>
+  </div>
+</form>
+
+{% endblock %}
