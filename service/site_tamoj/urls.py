@@ -13,6 +13,8 @@ urlpatterns = [
     path('register_user/', register_user, name= 'register_user'),
     path('dataset/', dataset, name= 'dataset'),
     path('properties/', properties, name='properties'),
+    path('vivod/<slug:region>',properties, name='vivod'),
+    path('index/', index, name='index'),
     # path('categories/<int:catid>/', categories),
 
     # path('account/', include('django.contrib.auth.urls')),

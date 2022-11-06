@@ -66,8 +66,31 @@ def about(request):
 def contact(request):
     return HttpResponse('авторизация на сайте')
 
-def properties(request):
-    return render(request, 'site_tamoj/properties.html', {'title': 'properties'})
+def properties(request, region):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('properties')
+        else:
+            # Return an 'invalid login' error message.
+            messages.success(request, ("Ошибка"))
+            return redirect('login')
+            pass
+    else:
+        return render(request, 'site_tamoj/login.html', { 'menu': menu,
+        'title': 'Регистрация'})
+
+
+
+# def vivod(request, region):
+#     if request.method == "POST":
+#         return render(request, 'site_tamoj/vivod.html', {'region': region})
+#     else:
+#         return redirect('vivo')
+
 
 def categories(request, catid):
     if int(catid) > 5:

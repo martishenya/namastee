@@ -12,7 +12,7 @@ class SignUpForm(UserCreationForm):
             'id': 'username',
             'type': 'text',
             'class': 'form-input',
-            'placeholder': _('Иван Иванов'),
+            # 'placeholder': _('Иван Иванов'), не работает
             'maxlength': '30',
             'minlength': '6'
             })
