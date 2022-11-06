@@ -1,0 +1,5 @@
+cd namaste-master
+cd service
+pip install requirements.txt
+python manage.py migrate
+python manage.py runserver
